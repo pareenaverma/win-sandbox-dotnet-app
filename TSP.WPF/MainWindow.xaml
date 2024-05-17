@@ -1,0 +1,40 @@
+﻿<Window x:Class="TSP.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TSP.WPF"
+        mc:Ignorable="d"
+        Title="Traveling Salesman" Height="450" Width="800">
+    <DockPanel>
+        <StackPanel Background="AliceBlue" Orientation="Horizontal" Height="42" DockPanel.Dock="Top">
+            <Label Content="Path length:" Margin="5,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Width="34" VerticalAlignment="Center" HorizontalContentAlignment="Right"
+                     Text="{Binding Pathlength}" />
+            <Button Content="Generate path" Margin="27,0,0,0" Width="90" Command="{Binding GeneratePathCommand}"></Button>
+
+            <Label Content="Population size:" Margin="27,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Width="42" VerticalAlignment="Center"  HorizontalContentAlignment="Right"
+                     Text="{Binding Populationsize}" />
+            
+            <Label Content="#Iterations:" Margin="27,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Width="38" VerticalAlignment="Center" HorizontalContentAlignment="Right" 
+                     Text="{Binding Iterations}" />
+
+            <Label Content="Random Seed:" Margin="27,0,0,0" VerticalAlignment="Center"/>
+            <TextBox Width="38" VerticalAlignment="Center" HorizontalContentAlignment="Right" 
+                     Text="{Binding RandomSeed}" />
+
+            <Button Content="Start" Margin="27,0,0,0" Width="70" Command="{Binding StartCommand}"></Button>
+        </StackPanel>
+        <StatusBar  Height="34" DockPanel.Dock="Bottom">
+            <Label Content="{Binding Status}" />
+            <Label Content="{Binding BestDistance}" />
+            <Label Content="{Binding CurrentIteration}" />
+            <Label Content="{Binding Ellapsed}" />
+            
+        </StatusBar>
+        <Canvas x:Name="PathCanvas"/>
+
+    </DockPanel>
+</Window>
